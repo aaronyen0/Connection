@@ -18,18 +18,18 @@ int main(){
     	sockAddr.sin_port = htons(1234); 
     	rv = bind(serverSock, (SOCKADDR*)&sockAddr, sizeof(SOCKADDR));
     
-	  printf("Listen.\n");
-   	 rv = listen(serverSock, 20);
+	printf("Listen.\n");
+   	rv = listen(serverSock, 20);
     
-	  printf("Accept Clinet.\n");
+	printf("Accept Clinet.\n");
     	SOCKADDR clientAddr;
     	int nSize = sizeof(SOCKADDR);
     	SOCKET clientSock = accept(serverSock, (SOCKADDR*)&clientAddr, &nSize);
     
-	  printf("Communication.\n");
 
+	printf("Communication.\n");
     	char *str = "Hello World!";
-	  int strLen = strlen(str) + 1;
+	int strLen = strlen(str) + 1;
     	rv = send(clientSock, str, strLen, NULL);
     
     	closesocket(clientSock);
